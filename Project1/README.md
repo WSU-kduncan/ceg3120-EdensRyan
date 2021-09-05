@@ -32,8 +32,7 @@ The final thing I did was duplicate my command to clone the repo ($git clone ubu
 
 Proof: 
 
-It now occurs to me that I do not know how to include an image in VIM. I'm going to attach the images in the pilot dropbox and come back to this after I finish a different assignment if I have time. I apologize for any inconvenience.
-
+I had some difficulty adding my screenshots into vim and found that I couldn't simply place them in the comments section of dropbox either. I have included them in a pdf that I attached directly to the file through github. I hope that is sufficent and apologize for any inconveniance. 
  
 
  
