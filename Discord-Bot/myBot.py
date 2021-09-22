@@ -29,26 +29,26 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    brooklyn_99_quotes = [
-        'I\'m the human form of the 💯 emoji.',
-        'Bingpot!',
-        (
-            'Cool. Cool cool cool cool cool cool cool, '
-            'no doubt no doubt no doubt no doubt.'
-        ),
+    Dresden_Files_quotes = [
+        'You are a drug dealer. To tiny faeries. Shame.',
+        'I am not a pessimist," I said loftily. "Though that can\'t last.',
+        'Molly once burned my egg. My boiled egg. I don\'t know how.',
+        'He had hard, steady eyes, and all the comforting, reassuring charm of a dental drill.',
+    ]
+# The Dresden books, not the show. The show is terrible.
+
+    King_Killer_quotes = [
+        'The best lies about me are the ones I told.',
+        'He taught only one class: Unlikely Maths. But since the times was listed as "now" and the place, "everywhere," this was hardly helpful.',
+        'Mooooo.',
+        'Upon him I will visit famine and fire, Till all-around him desolation rings and all the demons in the outer dark look on amazed and recognize that vengence is the business of a man.',
     ]
 
-    hitchhiker_quotes = [
-        'There is an art, it says, or rather, a knack to flying. The knack lies in learning how to throw yourself at the ground and miss.',
-        'It is a mistake to think you can solve any major problems just with potatoes.',
-        'In the beginning the Universe was created. This has made a lot of people very angry and been widely regarded as a bad move.',
-        'A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.',
-    ]
-
-    if message.content == 'towel!':
-        #response = random.choice(brooklyn_99_quotes)
-        response = random.choice(hitchhiker_quotes)
+    if message.content == 'Dresden':
+        response = random.choice(Dresden_Files_quotes)
+        await message.channel.send(response)
+    elif message.content == 'Wind':    
+        response = random.choice(King_Killer_quotes)
         await message.channel.send(response)
 
 client.run(TOKEN)
-
