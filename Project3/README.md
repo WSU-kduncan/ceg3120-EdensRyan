@@ -1,6 +1,6 @@
 Part 1
 
-1,
+1. 
 ![image of VPC](Images/VPC.png)
 I created a VPC which is basically a box that will hold my subnets and all of the rules and tools that I will use to connect devices and communicate. On it's own it
 can't really do anything. I have this one an IP range of 10.0.0.0/24
