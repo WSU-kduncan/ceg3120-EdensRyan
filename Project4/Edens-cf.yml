@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: I have buit this templete to create a VPC that can be accessed from WSU, my home network, and other devices on the network. It will have one instance                 with an elastic IP.
+Description: I have built this templete to create a VPC that can be accessed from WSU, my home network, and other devices on the network. It will have one instance with an elastic IP.
 Parameters:
-  KeyName:
+  KeyName: 
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
     Type: 'AWS::EC2::KeyPair::KeyName'
     ConstraintDescription: must be the name of an existing EC2 KeyPair.
@@ -20,7 +20,7 @@ Mappings:
   AWSRegionUbuntu: # AMI for Ubuntu server in each supported region 
     us-east-1:   # N. Virginia
       PV64: NOT_SUPPORTED
-      HVM64: ami-02e136e904f3da870
+      HVM64: ami-09e67e426f25ce0d7 
       HVMG2: NOT_SUPPORTED
 Resources:
   VPC:
@@ -76,11 +76,11 @@ Resources:
     Properties:
       Domain: vpc
       InstanceId: !Ref PublicUbuntuInstance
-  Lab4SecurityGroup:
+  Lab1SecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
       VpcId: !Ref VPC
-      GroupDescription: Enable SSH access via port 22 and open all insternal ports.
+      GroupDescription: Enable SSH access via port 22 
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: '22'
@@ -94,7 +94,8 @@ Resources:
           FromPort: '22'
           ToPort: '22'
           CidrIp: 24.166.21.152/32 # HOME CIDR
-  PubldicUbuntuInstance:
+
+  PublicUbuntuInstance:
     Type: 'AWS::EC2::Instance'
     DependsOn: AttachGateway
     Properties:
@@ -119,7 +120,7 @@ Resources:
           DeviceIndex: '0'
           DeleteOnTermination: 'true'
           SubnetId: !Ref Subnet
-          PrivateIpAddress: 10.0.0.08
+          PrivateIpAddress: 10.0.0.81
       UserData:
         Fn::Base64:
           !Sub |
@@ -129,5 +130,5 @@ Resources:
             git \
             python3 \
             pip3   && \
-            hostname set-hostname ubuntu && \
+            hostnamectl set-hostname pipe && \
             reboot
